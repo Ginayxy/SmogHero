@@ -2,7 +2,8 @@ var res = {
 
     //mainMenu
     MMBackground_png: "res/MMBackground.png",
-    MMBuildings_png: "res/MMBuildings.png",
+    MMBuildingB_png: "res/MMBuildingB.png",
+    MMBuildingF_png: "res/MMBuildingF.png",
     MMTitle_png: "res/MMTitle.png",
     MMButtons_plist: "res/buttons.plist",
     MMButtons_png: "res/buttons.png",
