@@ -8,22 +8,20 @@ var MainMenuLayer = cc.Layer.extend({
         this._super();
         var size = cc.winSize;
         cc.spriteFrameCache.addSpriteFrames(res.MMButtons_plist);
-
+        // 颜色渐变图层
+        var bg = new cc.LayerGradient(cc.color(246,237,213),cc.color(196,196,196),cc.p(0,1));
         // 背景
-        var bg = new cc.Sprite(res.MMBackground_png);
+        //var bg = new cc.Sprite(res.MMBackground_png);
         var title = new cc.Sprite(res.MMTitle_png);
-        var buildingB = new cc.Sprite(res.MMBuildingB_png, cc.rect(0,0,758,463));
-        var buildingF = new cc.Sprite(res.MMBuildingF_png, cc.rect(0,0,758,463));
+        var buildings = new cc.Sprite(res.MMBuildings_png);
         var rope = new cc.Sprite('#Rope.png');
-        bg.attr({x: size.width / 2, y: size.height / 2});
+        //bg.attr({x: size.width / 2, y: size.height / 2});
         title.attr({x: size.width / 2, y: 900});
-        buildingB.attr({x: size.width / 2, y: 0, anchorX: 0.5, anchorY: 0});
-        buildingF.attr({x: size.width / 2, y: 0, anchorX: 0.5, anchorY: 0});
+        buildings.attr({x: size.width / 2, y: 0, anchorX: 0.5, anchorY: 0});
         rope.attr({x: size.width / 2, y: 950, anchorX: 0.5, anchorY: 1});
-        this.addChild(bg);
+        this.addChild(bg,0,1);
         this.addChild(title, 2);
-        this.addChild(buildingB);
-        this.addChild(buildingF);
+        this.addChild(buildings);
         this.addChild(rope, 1);
 
         // 文字

@@ -2,13 +2,14 @@ var res = {
 
     //mainMenu
     MMBackground_png: "res/MMBackground.png",
-    MMBuildingB_png: "res/MMBuildingB.png",
-    MMBuildingF_png: "res/MMBuildingF.png",
+
+    MMBuildings_png: "res/MMBuildings.png",
     MMTitle_png: "res/MMTitle.png",
     MMButtons_plist: "res/buttons.plist",
     MMButtons_png: "res/buttons.png",
     //gamePlay
-
+    GPBuildingB_png: "res/MMBuildingB.png",
+    GPBuildingF_png: "res/MMBuildingF.png",
     //setting
 
     //role

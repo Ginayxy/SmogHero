@@ -8,12 +8,11 @@
     "renderMode" : 0,
     "engineDir":"frameworks/cocos2d-html5",
 
-    "modules" : ["cocos2d", "chipmunk"],
+    "modules" : ["cocos2d", "cocostudio", "chipmunk"],
 
     "jsList" : [
         "src/resource.js",
         "src/config/GameConfig.js",
-
         "src/MainMenu.js"
     ]
 }
