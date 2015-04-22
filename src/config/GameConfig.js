@@ -1,5 +1,5 @@
 /**
- * Created by yuxinyu_91 on 3/27.
+ * Created by yuxinyu on 3/27.
  */
 
 var SH = SH || {};
@@ -13,6 +13,9 @@ SH.GAME_STATE = {
 
 //score
 SH.SCORE = 0;
+SH.SPEEDUP_SORCE = [100, 250, 450, 700, 1000];
 
 //sound
 SH.SOUND = true;
+
+

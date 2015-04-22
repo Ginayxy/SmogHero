@@ -1,21 +1,30 @@
 /**
- * Created by yuxinyu_91 on 3/27.
+ * Created by yuxinyu on 3/27.
  */
 
 var MainMenuLayer = cc.Layer.extend({
+    _superman: null,
 
     ctor: function () {
         this._super();
-        var size = cc.winSize;
+        this.init();
+    },
+
+    init:function (){
+        size = cc.director.getWinSize();
+        cc.spriteFrameCache.addSpriteFrames(res.MMBg_plist);
         cc.spriteFrameCache.addSpriteFrames(res.MMButtons_plist);
+        cc.spriteFrameCache.addSpriteFrames(res.Role_plist);
         // 颜色渐变图层
         var bg = new cc.LayerGradient(cc.color(246,237,213),cc.color(196,196,196),cc.p(0,1));
         // 背景
-        //var bg = new cc.Sprite(res.MMBackground_png);
         var title = new cc.Sprite(res.MMTitle_png);
-        var buildings = new cc.Sprite(res.MMBuildings_png);
+        var buildings = new cc.Sprite('#buildings.png');
         var rope = new cc.Sprite('#Rope.png');
-        //bg.attr({x: size.width / 2, y: size.height / 2});
+        bg.ignoreAnchorPointForPosition(false);
+        bg.attr({x: size.width / 2, y: size.height / 2, anchorX:0.5, anchorY:0.5});
+        bg.changeWidth(800);
+        bg.changeHeight(1136);
         title.attr({x: size.width / 2, y: 900});
         buildings.attr({x: size.width / 2, y: 0, anchorX: 0.5, anchorY: 0});
         rope.attr({x: size.width / 2, y: 950, anchorX: 0.5, anchorY: 1});
@@ -23,6 +32,14 @@ var MainMenuLayer = cc.Layer.extend({
         this.addChild(title, 2);
         this.addChild(buildings);
         this.addChild(rope, 1);
+
+        // 动画
+        this._superman = new cc.Sprite('#role_superman_2.png');
+        this._superman.setScale(0.5);
+        this.addChild(this._superman, 11, 4);
+        this._superman.attr({x:size.width / 2 - 379, y:Math.random() * size.height / 2, anchorX:0, anchorY:0});
+
+        this._superman.runAction(cc.moveBy(5, cc.p(800, 0)));
 
         // 文字
         var play_txt = new cc.LabelBMFont('PLAY', res.charmap_fnt);
@@ -55,6 +72,8 @@ var MainMenuLayer = cc.Layer.extend({
         menu.y = 0;
         this.addChild(menu, 2, 10);
 
+        this.schedule(this.update, 0.1);
+
         return true;
     },
 
@@ -67,7 +86,21 @@ var MainMenuLayer = cc.Layer.extend({
     },
 
     onSetting: function(){
+        var scene = new cc.Scene();
+        scene.addChild(new SettingLayer());
+        cc.director.runScene(new cc.TransitionFade(0.8, scene));
+    },
 
+    update:function () {
+        if (this._superman.x > size.width / 2 + 378) {
+            this._superman.visible = false;
+            this._superman.y = Math.random() * size.height;
+            this._superman.x = size.width / 2 -379;
+            this.scheduleOnce(function(){
+                this._superman.runAction(cc.moveBy(5, cc.p(800, 0)));
+                this._superman.visible = true;
+            },Math.random()*10+10);
+        }
     }
 });
 
