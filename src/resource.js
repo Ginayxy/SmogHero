@@ -14,18 +14,24 @@ var res = {
     Obj_png: "res/obj_spr.png",
 
     //setting
-    STTitle_png:"res/title_setting.png",
     STBtn_png: "res/setting_spr.png",
     STBtn_plist: "res/setting_spr.plist",
 
     //store
     Role_plist:"res/role_spr.plist",
     Role_png:"res/role_spr.png",
-    RLTitle_png:"res/title_store.png",
 
     //config
     charmap_fnt: "res/font.fnt",
-    charmap_png: "res/font.png"
+    charmap_png: "res/font.png",
+
+    // sound
+    Click_ogg: "res/sound/click.ogg",
+    Coin_ogg: "res/sound/coin.ogg",
+    Drop_ogg: "res/sound/drop.ogg",
+    Fly_ogg: "res/sound/fly.ogg",
+    Over_ogg: "res/sound/over.ogg",
+    Play_mp3: "res/sound/play.mp3"
 
 };
 
