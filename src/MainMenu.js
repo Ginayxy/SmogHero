@@ -73,7 +73,8 @@ var MainMenuLayer = cc.Layer.extend({
         if(SH.SOUND){
             cc.audioEngine.playEffect(res.Click_ogg);
         }
-
+        var gameplay = new GamePlayScene();
+        cc.director.pushScene(new cc.TransitionFade(0.5,gameplay));
     },
 
     onRole: function () {
